@@ -21,6 +21,7 @@ const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const equal = document.querySelector("#equal");
 const clear = document.querySelector("#clear");
+const point = document.querySelector("#point");
 
 numbers.forEach(button => {
     button.addEventListener("click", () => {
@@ -28,6 +29,8 @@ numbers.forEach(button => {
             clearAll();
         }
         display.value += button.textContent;
+        
+        point.disabled = display.value.includes(".") ? true : false;
     })
 })
 
