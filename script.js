@@ -74,9 +74,26 @@ function clearAll (){
     result = undefined;
 }
 
-const backspace = document.querySelector("#backspace");
-backspace.addEventListener("click", () =>{
+function getBackspace(){
     display.value = display.value.slice(0, -1);
+}
+
+const backspace = document.querySelector("#backspace");
+backspace.addEventListener("click", () => {
+    getBackspace();
+})
+
+document.addEventListener("keydown", (event) =>{
+    if(event.key === "Backspace"){
+        getBackspace();
+    } else if (event.key.length === 1){
+        if(event.key === "." && display.value.includes(".")){
+            event.preventDefault();
+            return;
+        }
+        display.value += event.key;
+        point.disabled = display.value.includes(".") ? true : false;
+    }
 })
 
 
