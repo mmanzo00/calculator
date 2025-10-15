@@ -74,5 +74,10 @@ function clearAll (){
     result = undefined;
 }
 
+const backspace = document.querySelector("#backspace");
+backspace.addEventListener("click", () =>{
+    display.value = display.value.slice(0, -1);
+})
+
 
 
